@@ -34,12 +34,22 @@ void scan_barcode(int* array) {
 
 	printf("Enter barcodes\n");
 	while (strcmp(tmp, "q")) {
-		gets(tmp);
+A:		gets(tmp);
+		if (strlen(tmp) != 4)
+		{
+			printf("barcode entered incorrectly\n");
+			goto A;
+		}
 		if (strcmp(tmp, "q")) {
 			for (int i = 0; i < N; i++) {
 				if (strcmp(barcodes[i], tmp) == 0) {
 					printf("%s, price: %.2f, diccount: %.2f %\n", products[i], price[i], discount[i]);
 					array[i] += 1;
+				}
+				else
+				{
+					printf("barcode entered incorrectly\n");
+					goto A;
 				}
 			}
 		}
