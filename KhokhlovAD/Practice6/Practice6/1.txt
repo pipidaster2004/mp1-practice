@@ -12,7 +12,7 @@ sosiski     723905    16.4     40
 
 snikers     105667    51.5     16
 
-morojenoe  139681    42.6     8
+morojenoe   139681    42.6     8
 
 muka        987654    116.9    19
 

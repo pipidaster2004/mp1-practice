@@ -12,12 +12,7 @@ protected:
 	int count; // к-во реально хранимых элементов
 	const static int sizestep = 10; // шаг наращивания размера массива
 public:
-	TContainer(int _size = 50)
-	{
-		size = _size;
-		count = 0;
-		elem = new TELEM[size];
-	}
+	TContainer(int _size = 50);
 	TContainer(const TContainer& _cnt)
 	{
 		size = _cnt.size;
@@ -37,8 +32,11 @@ public:
 	}
 
 	const int getSize()const { return size;  }
+	// ??
 	const int& Сount() const { return count; }
+	// ??
 	int Сount() { return count; }
+	// ??
 	const int& Sizestep() const { return sizestep; }
 	void Add(TELEM _elm)
 	{
@@ -144,6 +142,14 @@ protected:
 		return nom;
 	}// найти элемент
 };
+
+template<class TELEM>
+TContainer<TELEM>::TContainer(int _size)
+{
+	size = _size;
+	count = 0;
+	elem = new TELEM[size];
+}
 
 class TProduct
 {
