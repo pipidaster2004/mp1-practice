@@ -33,7 +33,7 @@ public:
 
 	const int getSize()const { return size;  }
 	// ??
-	const int& Сount() const { return count; }
+	const int& Сount() const { return count; }  
 	// ??
 	int Сount() { return count; }
 	// ??
@@ -77,7 +77,7 @@ public:
 		}
 		return elem[index]; // тип возвращаемого значения
 	}// индексация посодержанию
-	TContainer& operator=(const TContainer& _cnt)
+	const TContainer& operator=(const TContainer& _cnt)
 	{
 		if (this != &_cnt) {
 			delete[] elem;;
@@ -149,7 +149,8 @@ TContainer<TELEM>::TContainer(int _size)
 	size = _size;
 	count = 0;
 	elem = new TELEM[size];
-}
+};
+
 
 class TProduct
 {
