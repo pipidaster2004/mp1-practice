@@ -157,6 +157,10 @@ public:
 	void setCode(unsigned long _code) { code = _code; };
 	void setCost(double _cost) { cost = _cost; };
 	void setCount(int _count) { count = _count; };
+	const std::string getName()const { return name; };
+	const unsigned long getCode()const { return code; };
+	const double getCost()const { return cost; };
+	const int getCount()const { return count; };
 };
 
 class TReceiptLine
@@ -169,6 +173,10 @@ public:
 	void scanProducts(int& n);
 	void setProducts(std::string name, unsigned long code, double cost, int count, int index);
 	void printProducts(int n);
+	const std::string getProductS(int ind)const { return product[ind].getName(); };
+	const unsigned long getProductCde(int ind)const { return product[ind].getCode(); };
+	const double getProductCst(int ind)const { return product[ind].getCost(); };
+	const int getProductCnt(int ind)const { return product[ind].getCount(); };
 };
 
 struct TDate

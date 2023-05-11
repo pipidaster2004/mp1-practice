@@ -40,7 +40,7 @@ int main()
 	int p=0;
 	TReceiptLine b;
 	b.scanProducts(p);
-
+	b.printProducts(p);
 	return 0;
 }
 

@@ -48,6 +48,7 @@ void TReceiptLine::scanProducts(int& n)
 		throw "file not finde";
 	}
 	infile >> n;
+	product = new TProduct[n];
 	for (int i = 0; i < n; i++)
 	{
 		infile >> name >> code >> cost >> count;
@@ -57,6 +58,11 @@ void TReceiptLine::scanProducts(int& n)
 
 void TReceiptLine::printProducts(int n)
 {
-	
-		;
+	for (int i = 0; i < n; i++)
+	{
+		cout << getProductS(i) << "   " <<
+			getProductCde(i) << "     " <<
+			getProductCst(i) << "     " <<
+			getProductCnt(i) << endl;
+	}
 }
