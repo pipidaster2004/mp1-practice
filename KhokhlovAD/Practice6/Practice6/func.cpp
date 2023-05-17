@@ -4,6 +4,7 @@
 #include <fstream>
 #include <ctime>
 #include "Header.h"
+#include "Container.h"
 using namespace std;
 
 void TTime::setTime()
@@ -24,16 +25,15 @@ void TDate::setDate()
 	year = 1900+ ltm->tm_year;
 }
 
-void TReceiptLine::setProducts(string name, unsigned long code, double cost, int count, int index) 
+void TReceiptLine::setProducts(string name, unsigned long code, double cost, int index) 
 { 
 	product[index].setName(name);
 	product[index].setCode(code);
 	product[index].setCost(cost); 
-	product[index].setCount(count);
 }
 
 
-void TReceiptLine::scanProducts(int& n)
+void scanProducts(TContainer < pair < TProduct, int > > _product, int& n)
 {
 	string name;
 	unsigned long code;
@@ -48,11 +48,17 @@ void TReceiptLine::scanProducts(int& n)
 		throw "file not finde";
 	}
 	infile >> n;
-	product = new TProduct[n];
+	TProduct tmp;
 	for (int i = 0; i < n; i++)
 	{
 		infile >> name >> code >> cost >> count;
-		setProducts(name, code, cost, count, i);
+		tmp.setName(name);
+		tmp.setCode(code);
+		tmp.setCost(cost);
+		pair<TProduct, int> tmp1;
+		tmp1.first = tmp;
+		tmp1.second = count;
+		_product.Add(tmp1);
 	}
 }
 
@@ -62,7 +68,13 @@ void TReceiptLine::printProducts(int n)
 	{
 		cout << getProductS(i) << "   " <<
 			getProductCde(i) << "     " <<
-			getProductCst(i) << "     " <<
-			getProductCnt(i) << endl;
+			getProductCst(i) << "     " << endl;
 	}
+}
+
+
+
+void TReceipt::Add(TProduct _elm)
+{
+	;
 }

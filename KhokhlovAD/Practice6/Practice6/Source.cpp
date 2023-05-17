@@ -3,10 +3,11 @@
 #include <ctime>
 #include <string>
 #include "Header.h"
+#include "Container.h"
 using namespace std;
 int main()
 {
-	TTime y;
+	/*TTime y;
 	y.setTime();
 	cout << y.hour << ":" << y.minute << ":" << y.second << endl;
 	TDate z;
@@ -36,11 +37,10 @@ int main()
 	x.Del(11);
 	cout << x.Ñount() << endl;
 	cout << endl;
-	
+	*/
 	int p=0;
-	TReceiptLine b;
-	b.scanProducts(p);
-	b.printProducts(p);
+	TContainer < pair < TProduct, int > > zxc;
+	scanProducts(zxc, p);
 	return 0;
 }
 
