@@ -16,13 +16,13 @@ public:
 	~TContainer();
 
 	const int getSize()const { return size; }
-	// ??
 	const int& Сount() const { return count; }
-	// ??
 	const int& Sizestep() const { return sizestep; }
+
 	void Add(TELEM _elm);
 	void Del(TELEM _elm);
 	void Del(unsigned int index);// удалить элемент по его номеру
+
 	TELEM& operator[](int index);
 	TELEM& operator[](const TELEM& _elm);
 	const TContainer& operator=(const TContainer& _cnt);

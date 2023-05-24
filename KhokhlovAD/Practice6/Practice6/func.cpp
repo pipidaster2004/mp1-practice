@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string>
 #include <fstream>
+#include <iomanip>
 #include <ctime>
 #include "Header.h"
 #include "Container.h"
@@ -33,7 +34,7 @@ void TReceiptLine::setProducts(string name, unsigned long code, double cost, int
 }
 
 
-void scanProducts(TContainer < pair < TProduct, int > > _product, int& n)
+void TReceipt::scanProducts(int& n)
 {
 	string name;
 	unsigned long code;
@@ -58,7 +59,7 @@ void scanProducts(TContainer < pair < TProduct, int > > _product, int& n)
 		pair<TProduct, int> tmp1;
 		tmp1.first = tmp;
 		tmp1.second = count;
-		_product.Add(tmp1);
+		baza.Add(tmp1);
 	}
 }
 
@@ -77,4 +78,46 @@ void TReceiptLine::printProducts(int n)
 void TReceipt::Add(TProduct _elm)
 {
 	;
+}
+
+TProduct::TProduct() {
+	code = 0;
+	name = "";
+	cost = 0.0;
+};
+
+
+
+TProduct::TProduct(long code_, std::string name_, double cost_) {
+	code = code_;
+	name = name_;
+	cost = cost_;
+};
+
+
+TProduct::TProduct(const TProduct& obj) {
+	code = obj.code;
+	name = obj.name;
+	cost = obj.cost;
+};
+
+
+bool TProduct::operator==(const TProduct& obj) {
+	if (code == obj.code) {
+		return true;
+	}
+	else return false;
+}
+
+ostream& operator<<(ostream& stream, const TProduct& product) {
+	stream << setw(20) << product.code
+		<< setw(20) << product.name
+		<< setw(20) << product.cost;
+	return stream;
+}
+TReceipt::TReceipt()
+{
+	index = 0;
+	date.setDate();
+	time.setTime();
 }
